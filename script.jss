@@ -1,26 +1,22 @@
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 
-// distance (px) at which the button starts escaping
 const TRIGGER_DISTANCE = 80;
 
 document.addEventListener("mousemove", (e) => {
-  const btnRect = noBtn.getBoundingClientRect();
+  const rect = noBtn.getBoundingClientRect();
 
-  const btnCenterX = btnRect.left + btnRect.width / 2;
-  const btnCenterY = btnRect.top + btnRect.height / 2;
+  const btnX = rect.left + rect.width / 2;
+  const btnY = rect.top + rect.height / 2;
 
-  const distance = Math.hypot(
-    e.clientX - btnCenterX,
-    e.clientY - btnCenterY
-  );
+  const distance = Math.hypot(e.clientX - btnX, e.clientY - btnY);
 
   if (distance < TRIGGER_DISTANCE) {
-    moveButton();
+    moveNoButton();
   }
 });
 
-function moveButton() {
+function moveNoButton() {
   const padding = 20;
 
   const maxX = window.innerWidth - noBtn.offsetWidth - padding;
