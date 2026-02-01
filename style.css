@@ -51,3 +51,7 @@ button {
   font-size: 22px;
   color: #c2255c;
 }
+#noBtn {
+  transition: left 0.15s ease, top 0.15s ease;
+}
+
